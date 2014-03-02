@@ -1,0 +1,58 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" 
+ >
+
+<!--   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd"> -->
+ 
+<web-app>
+
+	<display-name>Archetype Created Web Application</display-name>
+	
+	
+<!-- 	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sturts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping> -->
+	
+	<filter>
+  <filter-name>struts2</filter-name>
+  <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+</filter>
+
+<filter-mapping>
+  <filter-name>struts2</filter-name>
+  <url-pattern>*.action</url-pattern>
+</filter-mapping>
+	
+
+
+
+
+	<!-- 配置spring -->	
+
+	<!-- 配置spring的加载文件路径及文件名称 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:beans.xml</param-value>
+	</context-param>
+	
+	<!-- 使用spring自带的监听器,其默认加载的是WEB-INF下的applicationContext.xml -->	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- 自己去写一个监听器来实现加载beans.xml,进而启动spring容器 -->
+	<!--
+	<listener>
+		<listener-class>com.amos.web.InitSpringFactoryListener</listener-class> 
+	</listener> -->
+	
+	
+</web-app>
